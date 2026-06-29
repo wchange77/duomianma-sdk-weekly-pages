@@ -1,0 +1,279 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --ink: #1f2937;
+  --muted: #667085;
+  --line: #d8dee9;
+  --brand: #0f766e;
+  --brand-dark: #115e59;
+  --accent: #b45309;
+  --shadow: 0 18px 50px rgba(31, 41, 55, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.10), transparent 35%),
+    linear-gradient(315deg, rgba(180, 83, 9, 0.10), transparent 35%),
+    var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.62rem 0.9rem;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--brand);
+}
+
+button.primary,
+.login-form button {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+button.primary:hover,
+.login-form button:hover {
+  background: var(--brand-dark);
+}
+
+.login-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.login-panel {
+  width: min(460px, 100%);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.eyebrow,
+.preview-kicker {
+  margin: 0 0 0.5rem;
+  color: var(--brand);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.login-panel h1,
+.topbar h1 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.login-note,
+.muted {
+  color: var(--muted);
+}
+
+.login-form,
+.editor-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 650;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.68rem 0.75rem;
+}
+
+textarea {
+  min-height: 9rem;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.login-error {
+  min-height: 1.3rem;
+  margin: 0;
+  color: #b42318;
+}
+
+.app-shell {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 1.2rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.8fr) minmax(420px, 1.2fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.editor-panel,
+.preview-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1.2rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.preview-panel {
+  min-height: 860px;
+}
+
+.preview-panel h2 {
+  margin: 0.2rem 0 1rem;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.preview-panel h3 {
+  margin: 1.5rem 0 0.55rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+}
+
+.meta-grid div {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.7rem;
+}
+
+dt {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+dd {
+  margin: 0.2rem 0 0;
+  font-weight: 700;
+}
+
+.markdown-lite {
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+.markdown-lite.empty {
+  color: var(--muted);
+}
+
+.pdf-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 860px) {
+  .topbar,
+  .editor-grid,
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    display: grid;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .preview-panel h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .topbar,
+  .editor-panel,
+  .login-screen {
+    display: none !important;
+  }
+
+  .app-shell {
+    padding: 0;
+  }
+
+  .editor-grid {
+    display: block;
+  }
+
+  .preview-panel {
+    border: none;
+    box-shadow: none;
+    min-height: auto;
+  }
+}

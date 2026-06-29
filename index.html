@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>多面码SDK联合开发专项群</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <section id="login-screen" class="login-screen" aria-labelledby="login-title">
+    <div class="login-panel">
+      <p class="eyebrow">GitHub Pages 独立周报</p>
+      <h1 id="login-title">多面码SDK联合开发专项群</h1>
+      <p class="login-note">请输入访问账号。该页面和本地 8092 周报内容独立维护。</p>
+      <form id="login-form" class="login-form">
+        <label>
+          用户名
+          <input id="username" type="text" autocomplete="username" required>
+        </label>
+        <label>
+          密码
+          <input id="password" type="password" autocomplete="current-password" required>
+        </label>
+        <p id="login-error" class="login-error" role="alert"></p>
+        <button type="submit">进入周报</button>
+      </form>
+    </div>
+  </section>
+
+  <main id="app-shell" class="app-shell" hidden>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Weekly Report</p>
+        <h1>多面码SDK联合开发专项群</h1>
+      </div>
+      <div class="actions">
+        <button id="save-local" type="button">保存草稿</button>
+        <button id="download-pdf" type="button" class="primary">下载 PDF</button>
+        <button id="logout" type="button">退出</button>
+      </div>
+    </header>
+
+    <section class="editor-grid">
+      <form id="report-form" class="editor-panel">
+        <label>
+          周报标题
+          <input id="report-title" type="text" value="多面码SDK联合开发专项群周报">
+        </label>
+        <div class="row">
+          <label>
+            周期
+            <input id="report-period" type="text" placeholder="例如：2026-W27 / 06.29-07.05">
+          </label>
+          <label>
+            负责人
+            <input id="report-owner" type="text" placeholder="填写负责人">
+          </label>
+        </div>
+        <label>
+          本周完成
+          <textarea id="done" placeholder="- 填写本周已完成事项"></textarea>
+        </label>
+        <label>
+          风险与阻塞
+          <textarea id="risks" placeholder="- 填写风险、阻塞、需要协调的事项"></textarea>
+        </label>
+        <label>
+          下周计划
+          <textarea id="next" placeholder="- 填写下周计划"></textarea>
+        </label>
+      </form>
+
+      <article id="pdf-target" class="preview-panel">
+        <p class="preview-kicker">多面码SDK联合开发专项群</p>
+        <h2 id="preview-title">多面码SDK联合开发专项群周报</h2>
+        <dl class="meta-grid">
+          <div><dt>周期</dt><dd id="preview-period">未填写</dd></div>
+          <div><dt>负责人</dt><dd id="preview-owner">未填写</dd></div>
+        </dl>
+        <section>
+          <h3>本周完成</h3>
+          <div id="preview-done" class="markdown-lite empty">未填写</div>
+        </section>
+        <section>
+          <h3>风险与阻塞</h3>
+          <div id="preview-risks" class="markdown-lite empty">未填写</div>
+        </section>
+        <section>
+          <h3>下周计划</h3>
+          <div id="preview-next" class="markdown-lite empty">未填写</div>
+        </section>
+        <footer class="pdf-footer">GitHub Pages 版本 · 与本地 8092 周报独立更新</footer>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
